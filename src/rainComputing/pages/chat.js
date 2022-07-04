@@ -88,8 +88,8 @@ const RcChat = props => {
   const [addGroupMember, setAddGroupMember] = useState([])
 
   const [showModal, setShowModel] = useState(false)
-  const handleClose = () => setShowModel(false)
-  const handleShow = () => setShowModel(true)
+  // const handleClose = () => setShowModel(false)
+  // const handleShow = () => setShowModel(true)
 
   const { groups, contacts, messages, project, state, RcChat } = useSelector(
     state => ({
@@ -124,6 +124,7 @@ const RcChat = props => {
   const [selectedUser, setSelectedUser] = useState({})
   const [initialSetChat, setInitialSetChat] = useState(true)
   const [recivers, setRecivers] = useState([])
+
   useEffect(() => {
     dispatch(onGetChats())
     dispatch(onGetGroups())
@@ -146,6 +147,10 @@ const RcChat = props => {
   // handle onChange event of the dropdown
   const handleAddGroupMember = e => {
     setAddGroupMember(Array.isArray(e) ? e.map(x => x.users) : [])
+  }
+
+  const toggleOpen = () => {
+    setShowModel(!showModal)
   }
 
   const handleAddMessage = () => {
@@ -509,7 +514,7 @@ const RcChat = props => {
                         <TabPane tabId="2">
                           {/* <h5 className="font-size-14 mb-3">Group</h5> */}
                           <div className="d-flex justify-content-center">
-                            <Button color="primary " onClick={handleShow}>
+                            <Button color="primary " onClick={toggleOpen}>
                               Creat New Group
                             </Button>
                           </div>

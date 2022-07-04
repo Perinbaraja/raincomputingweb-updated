@@ -59,14 +59,13 @@ const Register = props => {
       //   "Must Contain 8 Characters, One Uppercase,Lowercase,Number,Special Character"
       // ),
     }),
-    onSubmit: (values,onSubmitProps) => {
+    onSubmit: (values, onSubmitProps) => {
+      console.log("onsubmit", values, onSubmitProps)
       //dispatch(registerUser({ ...values, aflag: true }))
       dispatch(registerUser({ ...values, aflag: true }))
-      onSubmitProps.setSubmitting(false)//Vidhya
+      onSubmitProps.setSubmitting(false) //Vidhya
       onSubmitProps.resetForm()
     },
-    
-  
   })
 
   const { user, registrationError, loading } = useSelector(state => ({
@@ -150,7 +149,7 @@ const Register = props => {
                           validation.handleSubmit()
                           return false
                           onSubmit.reset()
-                         //e. reset()
+                          //e. reset()
                         }}
                       >
                         {user && (
@@ -271,19 +270,18 @@ const Register = props => {
                           </button>
                         </div>
 
-                        
                         <div className=" mt-3 text-center">
-                  <p>
-                    Already have an account ?{" "}
-                    <Link
-                      to="/login"
-                      className="font-weight-medium text-primary"
-                    >
-                      {" "}
-                      Login
-                    </Link>{" "}
-                  </p>
-                </div>
+                          <p>
+                            Already have an account ?{" "}
+                            <Link
+                              to="/login"
+                              className="font-weight-medium text-primary"
+                            >
+                              {" "}
+                              Login
+                            </Link>{" "}
+                          </p>
+                        </div>
 
                         <div className="mt-4 text-center">
                           <p className="mb-0">
@@ -304,7 +302,7 @@ const Register = props => {
       </div>
     </React.Fragment>
   )
-  reset();
+  reset()
 }
 
 export default Register
