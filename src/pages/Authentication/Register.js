@@ -63,8 +63,8 @@ const Register = props => {
       console.log("onsubmit", values, onSubmitProps)
       //dispatch(registerUser({ ...values, aflag: true }))
       dispatch(registerUser({ ...values, aflag: true }))
-      onSubmitProps.setSubmitting(false) //Vidhya
-      onSubmitProps.resetForm()
+      // onSubmitProps.setSubmitting(false) //Vidhya
+      // onSubmitProps.resetForm()
     },
   })
 
