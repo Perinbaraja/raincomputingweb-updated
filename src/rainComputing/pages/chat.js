@@ -64,6 +64,8 @@ import { CREATE_CHATROOM, GET_PRIVATECHAT } from "helpers/url_helper"
 import { GET_ALLUSER } from "helpers/url_helper"
 import { useSocket } from "SocketProvider"
 
+import profile from "assets/images/avatar-defult.jpg"
+
 function useQuery() {
   const { search } = useLocation()
   return React.useMemo(() => new URLSearchParams(search), [search])
@@ -479,15 +481,15 @@ const RcChat = props => {
                                             </span>
                                           )}
                                         </div>
-                                        <div className="align-self-center me-3">
+                                        <div className="align-self-center me-3 ">
                                           <img
-                                            src={images[chat.image]}
-                                            className="rounded-circle avatar-xs"
+                                            src={profile}
+                                            className="rounded-circle avatar-sm"
                                             alt=""
                                           />
                                         </div>
 
-                                        <div className="flex-grow-1 overflow-hidden">
+                                        <div className="flex-grow-1 overflow-hidden align-self-center">
                                           <h5 className="text-truncate font-size-14 mb-1">
                                             {chat.isGroup
                                               ? chat.groupName
