@@ -18,22 +18,9 @@ const fireBaseBackend = getFirebaseBackend()
 function* registerUser({ payload: { user } }) {
   console.log("register")
   try {
-    // if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
-    //   const response = yield call(
-    //     fireBaseBackend.registerUser,
-    //     user.email,
-    //     user.password
-    //   )
-    //   yield put(registerUserSuccessful(response))
-    // } else if (process.env.REACT_APP_DEFAULTAUTH === "jwt") {
-    //   const response = yield call(postJwtRegister, "/post-jwt-register", user)
-    //   yield put(registerUserSuccessful(response))
-    // } else
-    if (process.env.REACT_APP_DEFAULTAUTH === "fake") {
-      console.log("post call")
-      const response = yield call(postRegister, user)
-      yield put(registerUserSuccessful(response))
-    }
+    console.log("post call")
+    const response = yield call(postRegister, user)
+    yield put(registerUserSuccessful(response))
   } catch (error) {
     yield put(registerUserFailed(error))
   }
